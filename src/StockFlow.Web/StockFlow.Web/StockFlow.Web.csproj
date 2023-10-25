@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\StockFlow.Application\StockFlow.Application.csproj" />
+    <ProjectReference Include="..\..\StockFlow.Contracts\StockFlow.Contracts.csproj" />
+    <ProjectReference Include="..\..\StockFlow.Infrastructure\StockFlow.Infrastructure.csproj" />
+    <ProjectReference Include="..\StockFlow.Web.Client\StockFlow.Web.Client.csproj" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.0-rc.2.23480.2" />
+  </ItemGroup>
+
+</Project>

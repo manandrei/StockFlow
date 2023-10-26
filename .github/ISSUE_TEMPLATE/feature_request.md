@@ -4,6 +4,6 @@ about: Suggest an idea for this project
 title: "[Feature] "
 labels: enhancement
 assignees: ''
-projects: ["softunity-ro/3"]
+projects: ["SoftUnity/3"]
 
 ---

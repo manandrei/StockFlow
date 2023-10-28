@@ -8,10 +8,10 @@ namespace StockFlow.Domain.Stocks
     {
         public DateTimeOffset TimeStamp { get; set; } = DateTimeOffset.UtcNow;
         public Material Material { get; set; } = null!;
-        public int MaterialId { get; set; }
+        public long MaterialId { get; set; }
         public DateOnly ExpireDate { get; set; }
         public DateOnly BatchDate { get; set; }
-        public Location Location { get; set; } = null!;
-        public int LocationId { get; set; }
+        public Position Position { get; set; } = null!;
+        public long PositionId { get; set; }
     }
 }

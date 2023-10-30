@@ -12,9 +12,12 @@ public class ActionLog : EntityBase
 
     public ActionLog()
     {
-     }
+    }
 
     public ActionLog(Stock stock, ActionType actionType)
-    {     ActionType = actionType;
-     var jsonConvertOptions = new JsonSerializerOptions { WriteIndented = false };     ObjectJsonValue = JsonSerializer.Serialize(stock, jsonConvertOptions);     }
+    {
+        ActionType = actionType;
+        var jsonConvertOptions = new JsonSerializerOptions { WriteIndented = false };
+        ObjectJsonValue = JsonSerializer.Serialize(stock, jsonConvertOptions);
+    }
 }

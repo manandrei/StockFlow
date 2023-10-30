@@ -11,10 +11,7 @@ public static class DependencyInjection
         if (string.IsNullOrWhiteSpace(connectionString))
             throw new ArgumentNullException(nameof(connectionString), "Invalid connection string argument");
 
-        services.AddDbContext<StockFlowDbContext>(options =>
-        {
-            options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
-        });
+        services.AddDbContext<StockFlowDbContext>(options => { options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)); });
 
         return services;
     }

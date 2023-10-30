@@ -36,7 +36,7 @@ public class PositionConfiguration : IEntityTypeConfiguration<Position>
             .WithMany(m => m.Positions)
             .UsingEntity("PositionExclusivMaterials");
 
-        var jsonOption = new JsonSerializerOptions{ WriteIndented = true };
+        var jsonOption = new JsonSerializerOptions { WriteIndented = true };
         // Note: This is just for demonstration purposes as the SizeType could be defined as a domain type for a more optimal solution.
         builder.Property(p => p.SizeTypes)
             .HasConversion(

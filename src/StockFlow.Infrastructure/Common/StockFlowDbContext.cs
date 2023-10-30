@@ -9,14 +9,15 @@ namespace StockFlow.Infrastructure.Common;
 
 public class StockFlowDbContext : DbContext
 {
-    public DbSet<Material> Materials { get; set; }
-    public DbSet<Rack> Racks { get; set; }
-    public DbSet<Position> Positions { get; set; }
-    public DbSet<Stock> Stocks { get; set; }
-    public DbSet<ActionLog> ActionLogs { get; set; }
+    public DbSet<Material> Materials => Set<Material>();
+    public DbSet<Rack> Racks => Set<Rack>();
+    public DbSet<Position> Positions => Set<Position>();
+    public DbSet<Stock> Stocks => Set<Stock>();
+    public DbSet<ActionLog> ActionLogs => Set<ActionLog>();
 
-
-    public StockFlowDbContext(DbContextOptions<StockFlowDbContext> options) : base(options) { }
+    public StockFlowDbContext(DbContextOptions<StockFlowDbContext> options) : base(options)
+    {
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

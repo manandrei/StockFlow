@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace StockFlow.Domain.ActionLogs;
 
-namespace StockFlow.Domain.ActionLogs
+public enum ActionType
 {
-    public enum ActionType
-    {
-        Add,
-        Remove,
-        Update,
-        None
-    }
+    Add,
+    Remove,
+    Update,
+    None
 }

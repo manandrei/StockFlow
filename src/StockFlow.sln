@@ -3,21 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34219.65
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockFlow.Domain", "StockFlow.Domain\StockFlow.Domain.csproj", "{621160A9-DB57-483F-9F8C-642DEB5DC8D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockFlow.Domain", "StockFlow.Domain\StockFlow.Domain.csproj", "{621160A9-DB57-483F-9F8C-642DEB5DC8D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockFlow.Application", "StockFlow.Application\StockFlow.Application.csproj", "{81B39DCD-D23A-4719-A166-4F9804104C4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockFlow.Application", "StockFlow.Application\StockFlow.Application.csproj", "{81B39DCD-D23A-4719-A166-4F9804104C4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockFlow.Infrastructure", "StockFlow.Infrastructure\StockFlow.Infrastructure.csproj", "{E237A58F-ACF2-45D4-90C5-CC3D3C7B58CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockFlow.Infrastructure", "StockFlow.Infrastructure\StockFlow.Infrastructure.csproj", "{E237A58F-ACF2-45D4-90C5-CC3D3C7B58CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockFlow.Contracts", "StockFlow.Contracts\StockFlow.Contracts.csproj", "{EC244E2A-07A5-476A-BD23-935386C72C4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockFlow.Contracts", "StockFlow.Contracts\StockFlow.Contracts.csproj", "{EC244E2A-07A5-476A-BD23-935386C72C4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockFlow.Web", "StockFlow.Web\StockFlow.Web\StockFlow.Web.csproj", "{34ABF305-FBBC-4D43-B86E-D0403DB446C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockFlow.Web", "StockFlow.Web\StockFlow.Web\StockFlow.Web.csproj", "{34ABF305-FBBC-4D43-B86E-D0403DB446C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockFlow.Web.Client", "StockFlow.Web\StockFlow.Web.Client\StockFlow.Web.Client.csproj", "{BE88D954-CF45-4EB5-A57E-AD17E5CC6D1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockFlow.Web.Client", "StockFlow.Web\StockFlow.Web.Client\StockFlow.Web.Client.csproj", "{BE88D954-CF45-4EB5-A57E-AD17E5CC6D1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockFlow.WinForms", "StockFlow.WinForms\StockFlow.WinForms.csproj", "{12FD6C18-7293-4158-9FF5-7378A6B8D391}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockFlow.WinForms", "StockFlow.WinForms\StockFlow.WinForms.csproj", "{12FD6C18-7293-4158-9FF5-7378A6B8D391}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockFlow.Wpf", "StockFlow.Wpf\StockFlow.Wpf.csproj", "{BBC2218E-7C99-4A8D-B9BD-03B00C6445D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockFlow.Wpf", "StockFlow.Wpf\StockFlow.Wpf.csproj", "{BBC2218E-7C99-4A8D-B9BD-03B00C6445D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockFlow.ResultPattern", "StockFlow.ResultPattern\StockFlow.ResultPattern.csproj", "{D10CDB4F-DD48-47D1-8AD3-DD4642ABC5F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{BBC2218E-7C99-4A8D-B9BD-03B00C6445D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBC2218E-7C99-4A8D-B9BD-03B00C6445D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBC2218E-7C99-4A8D-B9BD-03B00C6445D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D10CDB4F-DD48-47D1-8AD3-DD4642ABC5F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D10CDB4F-DD48-47D1-8AD3-DD4642ABC5F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D10CDB4F-DD48-47D1-8AD3-DD4642ABC5F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D10CDB4F-DD48-47D1-8AD3-DD4642ABC5F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

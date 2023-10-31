@@ -4,10 +4,11 @@ using StockFlow.Domain.Locations;
 using StockFlow.Domain.Materials;
 using StockFlow.Domain.Stocks;
 using System.Reflection;
+using StockFlow.Application.Common;
 
 namespace StockFlow.Infrastructure.Common;
 
-public class StockFlowDbContext : DbContext
+public class StockFlowDbContext : DbContext, IUnitOfWork
 {
     public DbSet<Material> Materials => Set<Material>();
     public DbSet<Rack> Racks => Set<Rack>();
@@ -23,5 +24,10 @@ public class StockFlowDbContext : DbContext
     {
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         base.OnModelCreating(modelBuilder);
+    }
+
+    public async Task CommitAsync()
+    {
+        await SaveChangesAsync();
     }
 }

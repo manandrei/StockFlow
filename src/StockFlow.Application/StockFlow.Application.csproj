@@ -7,8 +7,22 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\StockFlow.Domain\StockFlow.Domain.csproj"/>
+        <ProjectReference Include="..\StockFlow.Domain\StockFlow.Domain.csproj" />
         <ProjectReference Include="..\StockFlow.ResultPattern\StockFlow.ResultPattern.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MediatR" Version="12.1.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="ActionLogs\Command\" />
+      <Folder Include="ActionLogs\Query\" />
+      <Folder Include="Locations\Command\UpdateRack\" />
+      <Folder Include="Locations\Command\UpdatePosition\" />
+      <Folder Include="Locations\Query\ListRacks\" />
+      <Folder Include="Stocks\Command\CreateStock\" />
+      <Folder Include="Stocks\Command\DeleteStock\" />
     </ItemGroup>
 
 </Project>

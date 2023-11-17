@@ -1,3 +1,4 @@
+using StockFlow.Application;
 using StockFlow.Web.Client.Pages;
 using StockFlow.Web.Components;
 using StockFlow.Infrastructure;
@@ -7,7 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();
 
-builder.Services.AddInfrastructure(builder.Configuration.GetConnectionString("Default"));
+builder.Services
+    .AddApplication()
+    .AddInfrastructure(builder.Configuration.GetConnectionString("Default"));
 
 var app = builder.Build();
 

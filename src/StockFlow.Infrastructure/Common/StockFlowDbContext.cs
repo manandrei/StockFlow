@@ -26,8 +26,8 @@ public class StockFlowDbContext : DbContext, IUnitOfWork
         base.OnModelCreating(modelBuilder);
     }
 
-    public async Task CommitAsync()
+    public async Task CommitChangesAsync(CancellationToken cancellationToken = default)
     {
-        await SaveChangesAsync();
+        await SaveChangesAsync(cancellationToken);
     }
 }

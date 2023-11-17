@@ -2,7 +2,7 @@
 
 public class Result<T> : IResult<T> where T : class?
 {
-    public T? Data { get; set; }
+    public T? Data { get; init; }
     public List<string> Errors { get; set; } = new();
     public string ErrorMessage => string.Join(", ", Errors);
     public bool IsSuccess => Errors.Count == 0;
@@ -32,9 +32,9 @@ public class Result<T> : IResult<T> where T : class?
         return new Result<T>();
     }
 
-    public static IResult<T?> Success(T data)
+    public static IResult<T> Success(T data)
     {
-        return new Result<T?>(data);
+        return new Result<T>(data);
     }
 
     public static IResult<T> Failure()

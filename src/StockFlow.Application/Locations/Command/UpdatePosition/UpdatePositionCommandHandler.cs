@@ -15,7 +15,7 @@ public class UpdatePositionCommandHandler : IRequestHandler<UpdatePositionComman
 
     public async Task<IResult<Position>> Handle(UpdatePositionCommand request, CancellationToken cancellationToken)
     {
-        var position = await _positionRepository.GetByIdAsync(request.Id, cancellationToken);
+        Position? position = await _positionRepository.GetByIdAsync(request.Id, cancellationToken);
         if (position == null) return Result<Position>.Failure("Position not found");
 
         position.Name = request.Name;

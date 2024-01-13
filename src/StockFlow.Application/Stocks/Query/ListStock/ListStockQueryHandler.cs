@@ -11,7 +11,7 @@ public class ListStockQueryHandler : IRequestHandler<ListStockQuery, IResult<IEn
 
     public async Task<IResult<IEnumerable<Stock>>> Handle(ListStockQuery request, CancellationToken cancellationToken)
     {
-        var stocks = await _repository.GetAllAsync(cancellationToken: cancellationToken);
+        List<Stock>? stocks = await _repository.GetAllAsync(cancellationToken: cancellationToken);
 
         return Result<IEnumerable<Stock>>.Success(stocks);
     }

@@ -15,7 +15,7 @@ public class DeleteStockCommandHandler : IRequestHandler<DeleteStockCommand, IRe
 
     public async Task<IResult<Stock>> Handle(DeleteStockCommand request, CancellationToken cancellationToken)
     {
-        var stock = await _stockRepository.GetByIdAsync(request.Id, cancellationToken);
+        Stock? stock = await _stockRepository.GetByIdAsync(request.Id, cancellationToken);
 
         if (stock == null) return Result<Stock>.Failure("Stock not found");
 

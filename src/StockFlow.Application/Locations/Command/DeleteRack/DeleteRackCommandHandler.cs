@@ -16,7 +16,7 @@ public class DeleteRackCommandHandler : IRequestHandler<DeleteRackCommand, IResu
 
     public async Task<IResult<Rack>> Handle(DeleteRackCommand request, CancellationToken cancellationToken)
     {
-        var rack = await _rackRepository.GetByIdAsync(request.Id, cancellationToken);
+        Rack? rack = await _rackRepository.GetByIdAsync(request.Id, cancellationToken);
         if (rack == null) return Result<Rack>.Failure("Rack not found");
 
         await _rackRepository.DeleteAsync(rack, cancellationToken);

@@ -15,7 +15,7 @@ public class DeleteMaterialCommandHandler : IRequestHandler<DeleteMaterialComman
 
     public async Task<IResult<Material>> Handle(DeleteMaterialCommand request, CancellationToken cancellationToken)
     {
-        var material = await _materialRepository.GetByIdAsync(request.Id, cancellationToken);
+        Material? material = await _materialRepository.GetByIdAsync(request.Id, cancellationToken);
         if (material == null) return Result<Material>.Failure("Material not found");
 
         await _materialRepository.DeleteAsync(material, cancellationToken);

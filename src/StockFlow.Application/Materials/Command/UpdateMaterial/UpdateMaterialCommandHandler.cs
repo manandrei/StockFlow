@@ -15,11 +15,13 @@ public class UpdateMaterialCommandHandler : IRequestHandler<UpdateMaterialComman
 
     public async Task<IResult<Material>> Handle(UpdateMaterialCommand request, CancellationToken cancellationToken)
     {
-        var material = await _materialRepository.GetByIdAsync(request.Id, cancellationToken);
+        Material? material = await _materialRepository.GetByIdAsync(request.Id, cancellationToken);
 
         if (material == null) return Result<Material>.Failure("Material not found");
 
         material.PartNumber = request.PartNumber;
+        material.SizeType = request.SizeType;
+        material.Description = request.Description;
 
         await _materialRepository.UpdateAsync(material, cancellationToken);
 

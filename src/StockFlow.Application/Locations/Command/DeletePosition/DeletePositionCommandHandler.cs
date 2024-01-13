@@ -15,7 +15,7 @@ public class DeletePositionCommandHandler : IRequestHandler<DeletePositionComman
 
     public async Task<IResult<Position>> Handle(DeletePositionCommand request, CancellationToken cancellationToken)
     {
-        var position = await _positionRepository.GetByIdAsync(request.Id, cancellationToken);
+        Position? position = await _positionRepository.GetByIdAsync(request.Id, cancellationToken);
 
         if (position == null) return Result<Position>.Failure("Position not found");
 

@@ -15,7 +15,7 @@ public class UpdateRackCommandHandler : IRequestHandler<UpdateRackCommand, IResu
 
     public async Task<IResult<Rack>> Handle(UpdateRackCommand request, CancellationToken cancellationToken)
     {
-        var rack = await _rackRepository.GetByIdAsync(request.Id, cancellationToken);
+        Rack? rack = await _rackRepository.GetByIdAsync(request.Id, cancellationToken);
         if (rack == null) return Result<Rack>.Failure("Rack not found");
 
         rack.Name = request.Name;

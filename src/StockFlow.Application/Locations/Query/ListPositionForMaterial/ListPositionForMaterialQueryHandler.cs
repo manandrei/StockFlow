@@ -11,7 +11,7 @@ public class ListPositionForMaterialQueryHandler : IRequestHandler<ListPositionF
 
     public async Task<List<Position>> Handle(ListPositionForMaterialQuery request, CancellationToken cancellationToken)
     {
-        var positions = await _positionRepository.GetFilteredData(
+        List<Position>? positions = await _positionRepository.GetFilteredData(
             whereQuery: p => p.ExclusiveMaterials
                 .Any(mat => mat.Id == request.MaterialId),
             cancellationToken: cancellationToken);

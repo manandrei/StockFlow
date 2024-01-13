@@ -23,13 +23,13 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : EntityBa
 
     public virtual async Task<List<TEntity>> GetAllAsync(bool doNotTrack = true, CancellationToken cancellationToken = default)
     {
-        var query = doNotTrack ? _dbSet.AsNoTracking() : _dbSet.AsQueryable();
+        IQueryable<TEntity>? query = doNotTrack ? _dbSet.AsNoTracking() : _dbSet.AsQueryable();
         return await query.ToListAsync(cancellationToken);
     }
 
     public async Task<List<TEntity>> GetFilteredData(bool doNotTrack = true, Expression<Func<TEntity, bool>>? whereQuery = null, CancellationToken cancellationToken = default, params Expression<Func<TEntity, object>>[]? includes)
     {
-        var query = doNotTrack ? _dbSet.AsNoTracking() : _dbSet.AsQueryable();
+        IQueryable<TEntity>? query = doNotTrack ? _dbSet.AsNoTracking() : _dbSet.AsQueryable();
 
         if (whereQuery != null)
             query = query
@@ -61,7 +61,7 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : EntityBa
 
     public async Task<TEntity?> DeleteAsync(long id, CancellationToken cancellationToken = default)
     {
-       var entity = await _dbSet.Where(w => w.Id == id)
+       TEntity? entity = await _dbSet.Where(w => w.Id == id)
            .FirstOrDefaultAsync(cancellationToken);
        
        if (entity is null) return null;

@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Swashbuckle.AspNetCore.Versioning" Version="2.0.0" />
         <ProjectReference Include="..\..\StockFlow.Application\StockFlow.Application.csproj" />
         <ProjectReference Include="..\..\StockFlow.Contracts\StockFlow.Contracts.csproj" />
         <ProjectReference Include="..\..\StockFlow.Infrastructure\StockFlow.Infrastructure.csproj" />

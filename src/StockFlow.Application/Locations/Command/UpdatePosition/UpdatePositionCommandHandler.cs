@@ -15,6 +15,7 @@ public class UpdatePositionCommandHandler : IRequestHandler<UpdatePositionComman
 
     public async Task<IResult<Position>> Handle(UpdatePositionCommand request, CancellationToken cancellationToken)
     {
+        // Todo: catch exceptions for cases when duplicate entries are made: [Duplicate entry '1-P1' for key 'IX_Positions_RackId_Name']
         Position? position = await _positionRepository.GetByIdAsync(request.Id, cancellationToken);
         if (position == null) return Result<Position>.Failure("Position not found");
 

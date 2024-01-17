@@ -28,6 +28,8 @@ public class UpdateRackCommandHandler : IRequestHandler<UpdateRackCommand, IResu
             ObjectJsonValue = JsonSerializer.Serialize(rack)
         };
         await _actionLogRepository.AddAsync(actionLog, cancellationToken);
+        
+        await _unitOfWork.CommitChangesAsync(cancellationToken);
 
         return Result<Rack>.Success(rack);
     }

@@ -1,3 +1,3 @@
 ﻿namespace StockFlow.Application.Locations.Query.ListPositionForMaterial;
 
-public record ListPositionForMaterialQuery(long MaterialId) : IRequest<List<Position>>;
+public record ListPositionForMaterialQuery(long MaterialId) : IRequest<IResult<List<Position>>>;

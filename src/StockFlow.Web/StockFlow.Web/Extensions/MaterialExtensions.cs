@@ -15,9 +15,30 @@ public static class MaterialExtensions
             material.Description
         );
     }
-    
+
     public static IEnumerable<MaterialResponse> ToResponse(this IEnumerable<Material> materials)
     {
         return materials.Select(m => m.ToResponse());
+    }
+
+    public static Material ToDomain(this MaterialResponse material)
+    {
+        return new Material
+        {
+            Id = material.Id,
+            PartNumber = material.PartNumber,
+            SizeType = Enum.Parse<SizeType>(material.SizeType),
+            Description = material.Description
+        };
+    }
+
+    public static IEnumerable<Material> ToDomain(this IEnumerable<MaterialResponse> materials)
+    {
+        return materials.Select(m => m.ToDomain());
+    }
+
+    public static List<SizeType> ToDomain(this IEnumerable<string> sizeTypes)
+    {
+        return sizeTypes.Select(Enum.Parse<SizeType>).ToList();
     }
 }

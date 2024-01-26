@@ -12,7 +12,7 @@ public class ListStockByPartNumberQueryHandler : IRequestHandler<ListStockByPart
 
     public async Task<IResult<IEnumerable<Stock>>> Handle(ListStockByPartNumberQuery request, CancellationToken cancellationToken)
     {
-        IEnumerable<Stock>? stocks = await _stockRepository.GetByPartNumberAsync(request.PartNumber, cancellationToken);
+        IEnumerable<Stock> stocks = await _stockRepository.GetByPartNumberAsync(request.PartNumber, cancellationToken);
 
         return Result<IEnumerable<Stock>>.Success(stocks);
     }

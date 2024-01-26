@@ -23,7 +23,7 @@ public class ListStockExpireLimitQueryHandler : IRequestHandler<ListStockExpireL
 
         DateOnly expDate = DateOnly.FromDateTime(DateTime.UtcNow.AddDays(daysBeforeExpire));
 
-        List<Stock>? stocks = await _stockRepository.GetFilteredData(
+        List<Stock> stocks = await _stockRepository.GetFilteredData(
             whereQuery: s => s.ExpireDate < expDate,
             cancellationToken: cancellationToken,
             includes: s => new { s.Material, s.Position }

@@ -11,7 +11,7 @@ public class ListStockExpiredQueryHandler : IRequestHandler<ListStockExpiredQuer
 
     public async Task<IResult<IEnumerable<Stock>>> Handle(ListStockExpiredQuery request, CancellationToken cancellationToken)
     {
-        List<Stock>? stocks = await _stockRepository.GetFilteredData(
+        List<Stock> stocks = await _stockRepository.GetFilteredData(
             whereQuery: s => s.ExpireDate < DateOnly.FromDateTime(DateTime.UtcNow),
             cancellationToken: cancellationToken,
             includes: s => new { s.Material, s.Position }

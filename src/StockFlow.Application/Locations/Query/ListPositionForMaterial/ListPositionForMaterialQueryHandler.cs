@@ -1,6 +1,6 @@
 ﻿namespace StockFlow.Application.Locations.Query.ListPositionForMaterial;
 
-public class ListPositionForMaterialQueryHandler : IRequestHandler<ListPositionForMaterialQuery, List<Position>>
+public class ListPositionForMaterialQueryHandler : IRequestHandler<ListPositionForMaterialQuery, IResult<List<Position>>>
 {
     private readonly IPositionRepository _positionRepository;
 
@@ -9,13 +9,14 @@ public class ListPositionForMaterialQueryHandler : IRequestHandler<ListPositionF
         _positionRepository = positionRepository;
     }
 
-    public async Task<List<Position>> Handle(ListPositionForMaterialQuery request, CancellationToken cancellationToken)
+    public async Task<IResult<List<Position>>> Handle(ListPositionForMaterialQuery request, CancellationToken cancellationToken)
     {
-        var positions = await _positionRepository.GetFilteredData(
+        // Todo: Check if material exists
+        List<Position> positions = await _positionRepository.GetFilteredData(
             whereQuery: p => p.ExclusiveMaterials
                 .Any(mat => mat.Id == request.MaterialId),
             cancellationToken: cancellationToken);
 
-        return positions;
+        return Result<List<Position>>.Success(positions);
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace StockFlow.Application.Locations.Command.CreatePosition;
 
-public class CreatePositionHandler: IRequestHandler<CreatePositionCommand, IResult<Position>>
+public class CreatePositionHandler : IRequestHandler<CreatePositionCommand, IResult<Position>>
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IPositionRepository _positionRepository;
@@ -40,7 +40,7 @@ public class CreatePositionHandler: IRequestHandler<CreatePositionCommand, IResu
 
             return Result<Position>.Success(position);
         }
-        catch (Exception e)
+        catch (Exception)
         {
             return Result<Position>.Failure("Could not create the position");
         }

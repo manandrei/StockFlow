@@ -12,6 +12,6 @@ public class Material : EntityBase
     public string PartNumber { get; set; } = null!;
     public SizeType SizeType { get; set; }
     public string? Description { get; set; }
-    public IEnumerable<Position> Positions { get; set; } = Enumerable.Empty<Position>();
-    public IEnumerable<Stock> Stocks { get; set; } = Enumerable.Empty<Stock>();
+    public IEnumerable<Position> Positions { get; set; } = new List<Position>();
+    public IEnumerable<Stock> Stocks { get; set; } = new List<Stock>();
 }

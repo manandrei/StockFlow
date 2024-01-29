@@ -36,7 +36,7 @@ public class CreateMaterialCommandHandler : IRequestHandler<CreateMaterialComman
 
             return Result<Material>.Success(material);
         }
-        catch (Exception e)
+        catch (Exception)
         {
             return Result<Material>.Failure("Material creation failed");
         }

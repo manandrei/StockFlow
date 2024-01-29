@@ -11,9 +11,9 @@ public class ListMaterialsOnPositionQueryHandler : IRequestHandler<ListMaterials
 
     public async Task<IResult<List<Material>>> Handle(ListMaterialsOnPositionQuery request, CancellationToken cancellationToken)
     {
-        var materials = await _materialRepository.GetFilteredData(
+        List<Material> materials = await _materialRepository.GetFilteredData(
             whereQuery: m => m.Positions.Any(p => p.Id == request.PositionId),
-            includes: m => m.Stocks,
+            includes: m => m.Positions,
             cancellationToken: cancellationToken);
 
         return Result<List<Material>>.Success(materials);

@@ -11,7 +11,7 @@ using StockFlow.Infrastructure.Common;
 namespace StockFlow.Infrastructure.Migrations
 {
     [DbContext(typeof(StockFlowDbContext))]
-    [Migration("20231030001703_Initial")]
+    [Migration("20240127082755_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -19,7 +19,7 @@ namespace StockFlow.Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.0-rc.1.23419.6")
+                .HasAnnotation("ProductVersion", "8.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("PositionExclusivMaterials", b =>

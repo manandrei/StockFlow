@@ -11,7 +11,8 @@ public class ListPositionsByRackQueryHandler : IRequestHandler<ListPositionsByRa
     
     public async Task<IResult<List<Position>>> Handle(ListPositionsByRackQuery request, CancellationToken cancellationToken)
     {
-        var positions = await _positionRepository.GetFilteredData(whereQuery: p => p.RackId == request.RackId, cancellationToken: cancellationToken);
+        //Todo: Check if rack exists
+        List<Position> positions = await _positionRepository.GetFilteredData(whereQuery: p => p.RackId == request.RackId, cancellationToken: cancellationToken);
         
         return Result<List<Position>>.Success(positions);
     }

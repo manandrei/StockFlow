@@ -19,7 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockFlow.WinForms", "Stock
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockFlow.Wpf", "StockFlow.Wpf\StockFlow.Wpf.csproj", "{BBC2218E-7C99-4A8D-B9BD-03B00C6445D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockFlow.ResultPattern", "StockFlow.ResultPattern\StockFlow.ResultPattern.csproj", "{D10CDB4F-DD48-47D1-8AD3-DD4642ABC5F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockFlow.ResultPattern", "StockFlow.ResultPattern\StockFlow.ResultPattern.csproj", "{D10CDB4F-DD48-47D1-8AD3-DD4642ABC5F6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FCDBFB3C-4D76-423F-A985-4D625E6F94A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockFlow.Application.Tests", "Tests\StockFlow.Application.Tests\StockFlow.Application.Tests.csproj", "{A5BA8CDD-A1F8-415F-A503-967CC711E360}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,9 +67,16 @@ Global
 		{D10CDB4F-DD48-47D1-8AD3-DD4642ABC5F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D10CDB4F-DD48-47D1-8AD3-DD4642ABC5F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D10CDB4F-DD48-47D1-8AD3-DD4642ABC5F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5BA8CDD-A1F8-415F-A503-967CC711E360}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5BA8CDD-A1F8-415F-A503-967CC711E360}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5BA8CDD-A1F8-415F-A503-967CC711E360}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5BA8CDD-A1F8-415F-A503-967CC711E360}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A5BA8CDD-A1F8-415F-A503-967CC711E360} = {FCDBFB3C-4D76-423F-A985-4D625E6F94A7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B0811FA4-1F09-41F1-911A-5633B8CD7A09}

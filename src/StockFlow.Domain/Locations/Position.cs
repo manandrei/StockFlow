@@ -13,5 +13,5 @@ public class Position : EntityBase
     public int MinAlert { get; set; }
     public HashSet<Material> ExclusiveMaterials { get; set; } = new();
     public List<SizeType> SizeTypes { get; set; } = new();
-    public IEnumerable<Stock> Stocks { get; set; } = Enumerable.Empty<Stock>();
+    public IEnumerable<Stock> Stocks { get; set; } = new List<Stock>();
 }

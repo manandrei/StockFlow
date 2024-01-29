@@ -24,12 +24,12 @@ public class StockConfiguration : IEntityTypeConfiguration<Stock>
 
         builder.Property(s => s.MaterialId)
             .IsRequired();
+        
+        builder.Property(s => s.PositionId).IsRequired();
 
         builder.HasOne(s => s.Material)
             .WithMany(m => m.Stocks)
             .HasForeignKey(s => s.MaterialId);
-
-        builder.Property(s => s.PositionId).IsRequired();
 
         builder.HasOne(s => s.Position)
             .WithMany(p => p.Stocks)

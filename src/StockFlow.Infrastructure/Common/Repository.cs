@@ -2,17 +2,16 @@
 using StockFlow.Application.Common;
 using System.Linq.Expressions;
 using StockFlow.Domain.Common;
+using StockFlow.ResultPattern;
 
 namespace StockFlow.Infrastructure.Common;
 
 public class Repository<TEntity> : IRepository<TEntity> where TEntity : EntityBase
 {
-    private readonly StockFlowDbContext _db;
     private readonly DbSet<TEntity> _dbSet;
 
-    public Repository(StockFlowDbContext db)
+    protected Repository(DbContext db)
     {
-        _db = db;
         _dbSet = db.Set<TEntity>();
     }
 
@@ -23,22 +22,22 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : EntityBa
 
     public virtual async Task<List<TEntity>> GetAllAsync(bool doNotTrack = true, CancellationToken cancellationToken = default)
     {
-        IQueryable<TEntity>? query = doNotTrack ? _dbSet.AsNoTracking() : _dbSet.AsQueryable();
+        IQueryable<TEntity> query = doNotTrack ? _dbSet.AsNoTracking().AsQueryable() : _dbSet.AsQueryable();
         return await query.ToListAsync(cancellationToken);
     }
 
     public async Task<List<TEntity>> GetFilteredData(bool doNotTrack = true, Expression<Func<TEntity, bool>>? whereQuery = null, CancellationToken cancellationToken = default, params Expression<Func<TEntity, object>>[]? includes)
     {
-        IQueryable<TEntity>? query = doNotTrack ? _dbSet.AsNoTracking() : _dbSet.AsQueryable();
+        IQueryable<TEntity> query = _dbSet.AsQueryable();
 
-        if (whereQuery != null)
-            query = query
-                .Where(whereQuery);
+        if (doNotTrack) query = query.AsNoTracking();
 
-        if (includes != null)
-            query = includes.Aggregate(query, (current, include) => current.Include(include));
+        if (includes is not null && includes.Length != 0) query = includes.Aggregate(query, (current, include) => current.Include(include));
 
-        return await query.ToListAsync(cancellationToken);
+        if (whereQuery is not null) query = query.Where(whereQuery);
+
+        List<TEntity> result = await query.ToListAsync(cancellationToken);
+        return result;
     }
 
     public virtual async Task<TEntity> AddAsync(TEntity entity, CancellationToken cancellationToken = default)
@@ -61,12 +60,12 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : EntityBa
 
     public async Task<TEntity?> DeleteAsync(long id, CancellationToken cancellationToken = default)
     {
-       TEntity? entity = await _dbSet.Where(w => w.Id == id)
-           .FirstOrDefaultAsync(cancellationToken);
-       
-       if (entity is null) return null;
-       
-       return await DeleteAsync(entity, cancellationToken);
+        TEntity? entity = await _dbSet.Where(w => w.Id == id)
+            .FirstOrDefaultAsync(cancellationToken);
+
+        if (entity is null) return null;
+
+        return await DeleteAsync(entity, cancellationToken);
     }
 
     public virtual async Task<int> CountAsync(CancellationToken cancellationToken = default)

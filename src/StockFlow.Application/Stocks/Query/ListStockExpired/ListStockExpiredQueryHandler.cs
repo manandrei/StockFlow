@@ -1,4 +1,6 @@
-﻿namespace StockFlow.Application.Stocks.Query.ListStockExpired;
+﻿using System.Linq.Expressions;
+
+namespace StockFlow.Application.Stocks.Query.ListStockExpired;
 
 public class ListStockExpiredQueryHandler : IRequestHandler<ListStockExpiredQuery, IResult<IEnumerable<Stock>>>
 {
@@ -14,7 +16,7 @@ public class ListStockExpiredQueryHandler : IRequestHandler<ListStockExpiredQuer
         List<Stock> stocks = await _stockRepository.GetFilteredData(
             whereQuery: s => s.ExpireDate < DateOnly.FromDateTime(DateTime.UtcNow),
             cancellationToken: cancellationToken,
-            includes: s => new { s.Material, s.Position }
+            includes: new Expression<Func<Stock, object>>[] { s => s.Material, s => s.Position }
         );
 
         return Result<IEnumerable<Stock>>.Success(stocks);

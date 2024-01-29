@@ -10,7 +10,8 @@ public static class RackExtensions
         return new RackResponse
         (
             rack.Id,
-            rack.Name
+            rack.Name,
+            rack.Positions.ToResponse()
         );
     }
     

@@ -11,7 +11,6 @@ using StockFlow.Application.Locations.Query.ListPositionsByRack;
 using StockFlow.Application.Locations.Query.ListRacks;
 using StockFlow.Contracts.Locations;
 using StockFlow.Domain.Locations;
-using StockFlow.Domain.Materials;
 using StockFlow.ResultPattern;
 using StockFlow.Web.Extensions;
 using StockFlow.Web.Utilities;
